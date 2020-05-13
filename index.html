@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>player</title>
+  <link rel="stylesheet" href="mycss.css" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div id="player">
+  <div class="main">
+    <div class="head">
+      <section>
+        <h1 class="logo">音乐盒</h1>
+        <span class="search">
+          <input type="text" alt="" autocomplete="off" v-model="query" @keyup.enter="searchmusic" placeholder="搜索..">
+        </span>
+      </section>
+    </div>
+    <div class="content">
+      <div class="content_left">
+        <ul class="left_ul">
+          <li class="left_li" v-for="item in musiclist">
+            <a href="javascript:;"  @click="playMusic(item.id)"  >
+              <b class="b">{{ item.name }}</b>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="content_center">
+<!--        <canvas id="left_Canvas" ></canvas>-->
+        <span :class="{playing:IsPlaying}">
+          <img src="image/player_bar.png" class="playbar">
+          <img src="image/disc.png" class="disc autoRotate playing">
+          <img :src="musicCover" class="cover autoRotate playing">
+        </span>
+<!--        <canvas id="right_Canvas"></canvas>-->
+      </div>
+      <div class="content_right">
+        <h3 class="comment">热门评论</h3>
+       <div class="overflow">
+         <dl v-for="it in hotComments" class="comment_list">
+           <dt class="dt"><img :src="it.user.avatarUrl" width="40px"></dt>
+           <dd class="name"> {{ it.user.nickname }}</dd>
+           <dd class="comment_content" >{{ it.content}}</dd>
+         </dl>
+       </div>
+      </div>
+    </div>
+    <div>
+      <audio  href="audio" @play="play" @pause="pause" :src="musicUrl"
+             controls  autoplay loop class="foot"></audio>
+    </div>
+  </div>
+</div>
+<!--<script>-->
+<!--  var c=document.getElementById("left_Canvas");-->
+<!--  var ctx=c.getContext("2d");-->
+<!--  ctx.lineWidth=10;-->
+<!--  ctx.beginPath();-->
+<!--  ctx.moveTo(0,0);-->
+<!--  ctx.lineTo(0,350);-->
+<!--  ctx.closePath();-->
+<!--  ctx.stroke();-->
+<!--</script>-->
+<!--<script>-->
+<!--  var c=document.getElementById("right_Canvas");-->
+<!--  var ctx=c.getContext("2d");-->
+<!--  ctx.beginPath();-->
+<!--  ctx.moveTo(100,0);-->
+<!--  ctx.lineTo(100,350);-->
+<!--  ctx.closePath();-->
+<!--  ctx.stroke();-->
+<!--</script>-->
+<script src="main.js"></script>
+</body>
+</html>

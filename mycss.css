@@ -1,0 +1,187 @@
+*{
+  margin: 0px;
+}
+.body{
+  width:800px;
+  height: auto;
+  margin: 100px auto;
+}
+.main{
+  width:800px;
+  height: auto;
+  margin: 100px auto;
+}
+.head{
+  width: 100%;
+  height: 100px;
+  background-color: #89c2d9;
+}
+.logo{
+ color: #8836e5;
+  margin-left: 60px ;
+  margin-top: 30px;
+  display: inline-block;
+}
+input{
+  width:250px ;
+  height: 30px;
+  margin-right:70px ;
+  margin-top: 33px;
+  float: right;
+  border: 2px solid #8b8bdc;
+  border-radius: 4px;
+  background-image: url('https://static.runoob.com/images/mix/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 5px 5px 5px 40px;
+}
+.content{
+  background-color: rgba(173, 189, 230, 0.4);
+  width: 100%;
+  height: 400px;
+  margin-top: 2px;
+}
+.content_left{
+  width: 25%;
+  height: 400px;
+  float: left;
+  overflow: scroll;
+}
+.left_ul{
+  list-style-type: none;
+  padding: 0px;
+  height: 400px;
+}
+.left_li{
+  padding: 5px;
+  height: 10%;
+}
+.b{
+  color: rgba(0, 0, 0, 0.66);
+  margin-top: 7px;
+  display: inline-block;
+}
+a:link {
+  text-decoration: none;
+  display:block;
+  padding-top: 3px;
+  padding-bottom: 1px;
+  background-color: rgba(139, 139, 220, 0.33);
+  height: 45px;
+  text-align: center;
+}
+a:visited{
+  display: block;
+  background-color: #89c2d9;
+}
+a:hover{
+  display: block;
+  background-color: #89c2d9;
+}
+.content_center{
+  width: 40%;
+  margin-left: 5px;
+  float: left;
+}
+.playbar{
+  position: absolute;
+  margin-left: 140px;
+  margin-top: -10px;
+  z-index: 10;
+  transform: rotate(-25deg);
+  transform-origin: 12px 12px;
+  transition: 1s;
+}
+.disc{
+  width: 230px;
+  height: 230px;
+  position: absolute;
+  margin-left: 55px;
+  margin-top: 70px;
+  z-index: 9;
+}
+.cover{
+  position: relative;
+  left: 100px;
+  top: 110px;
+  width: 140px;
+  height: 140px;
+  border-radius: 75px;
+  z-index: 8;
+}
+
+.playing {
+  animation-play-state: running;
+
+}
+.autoRotate {
+  animation-name: Rotate;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+  animation-timing-function: linear;
+  animation-duration: 5s;
+}
+@keyframes Rotate {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+.content_right{
+  width: 270px;
+  height: 400px;
+  overflow: scroll;
+}
+/*#left_Canvas{*/
+/*  display: inline-block;*/
+/*  float: left;*/
+/*  width: 20px;*/
+/*  height: 350px;*/
+/*  color: black;*/
+/*}*/
+/*#right_Canvas{*/
+/*  display: inline-block;*/
+/*  float: left;*/
+/*  width: 20px;*/
+/*  height: 350px;*/
+/*}*/
+.comment{
+  margin-left: 30px;
+  color: dimgray;
+  margin-top: 5px;
+}
+.comment_list{
+  width: 240px;
+  margin-left: 5px;
+  display: inline-block;
+  border: solid 0.5px #8b8bdc;
+
+}
+.dt{
+  width: 50px;
+  display: inline-block;
+  float: left;
+}
+.name{
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 180px;
+}
+.comment_content{
+  float: left;
+  height: auto;
+  padding-bottom: 5px;
+
+  display: inline-block;
+  margin-left: 10px;
+}
+.foot{
+  background-color: gainsboro;
+  width: 100%;
+  height: 40px;
+  float: left;
+  margin-top: 2px;
+}
