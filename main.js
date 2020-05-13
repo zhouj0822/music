@@ -6,7 +6,10 @@ var app=new Vue({
     musicUrl:"",
     musicCover:"",
     hotComments:[],
-    IsPlaying:false
+    IsPlaying:false,
+    isShow:false,
+    mvUrl:"",
+
   },
   methods:{
     searchmusic:function () {
@@ -15,7 +18,7 @@ var app=new Vue({
         .then(function (response) {
           // console.log(response);
           that.musiclist=response.data.result.songs;
-        },function (err) {})
+        },function (err) {},)
     },
     playMusic:function (musicId) {
       // console.log(musicId);
@@ -28,22 +31,32 @@ var app=new Vue({
         },function (err) {})
       axios.get("https://autumnfish.cn/song/detail?ids="+musicId)
         .then(function (response) {
-          console.log(response.data.songs[0].al.picUrl);
+          // console.log(response.data.songs[0].al.picUrl);
           that.musicCover=response.data.songs[0].al.picUrl;
         },function (err) {})
       axios.get("https://autumnfish.cn/comment/hot?type=0&id="+musicId)
         .then(function (response) {
-          console.log(response.data.hotComments);
+          // console.log(response.data.hotComments);
           that.hotComments=response.data.hotComments;
         },function (err) {})
     },
     play:function () {
-      // console.log(this.play);
+      // console.log("play");
       this.IsPlaying=true;
     },
     pause:function () {
-      // console.log(this.pause)
-      this.IsPlaying=false
+      // console.log("pause");
+      this.IsPlaying=false;
+    },
+    playMV:function (mvid) {
+      var that=this;
+      axios.get("https://autumnfish.cn/mv/url?id="+mvid)
+        .then(function (response) {
+          // console.log(response)
+          // console.log(response.data.data.url)
+          that.isShow=true;
+          that.mvUrl=response.data.data.url
+        },function (err) {})
     }
   }
 })

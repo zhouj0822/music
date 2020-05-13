@@ -24,24 +24,24 @@
           <li class="left_li" v-for="item in musiclist">
             <a href="javascript:;"  @click="playMusic(item.id)"  >
               <b class="b">{{ item.name }}</b>
+              <span v-if="item.mvid!=0" @click="playMV(item.mvid)"><i></i></span>
             </a>
+
           </li>
         </ul>
       </div>
-      <div class="content_center">
+      <div class="content_center" >
 <!--        <canvas id="left_Canvas" ></canvas>-->
-        <span :class="{playing:IsPlaying}">
-          <img src="image/player_bar.png" class="playbar">
-          <img src="image/disc.png" class="disc autoRotate playing">
-          <img :src="musicCover" class="cover autoRotate playing">
-        </span>
+          <img src="image/player_bar.png" class="playbar " :class="{isPlay:IsPlaying}">
+          <img src="image/disc.png" class="disc autoRotate" :class="{playing:IsPlaying}">
+          <img :src="musicCover" class="cover autoRotate " :class="{playing:IsPlaying}">
 <!--        <canvas id="right_Canvas"></canvas>-->
       </div>
       <div class="content_right">
         <h3 class="comment">热门评论</h3>
        <div class="overflow">
          <dl v-for="it in hotComments" class="comment_list">
-           <dt class="dt"><img :src="it.user.avatarUrl" width="40px"></dt>
+           <dt class="dt"><img :src="it.user.avatarUrl" width="40px" ></dt>
            <dd class="name"> {{ it.user.nickname }}</dd>
            <dd class="comment_content" >{{ it.content}}</dd>
          </dl>
@@ -49,7 +49,7 @@
       </div>
     </div>
     <div>
-      <audio  href="audio" @play="play" @pause="pause" :src="musicUrl"
+      <audio  href='audio' @play="play" @pause="pause" :src="musicUrl"
              controls  autoplay loop class="foot"></audio>
     </div>
   </div>
